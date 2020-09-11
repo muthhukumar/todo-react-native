@@ -30,7 +30,7 @@ class Home extends React.Component {
               this.setState({isModalOpen: false});
               this.props.addTodo({content: this.state.newTask});
             }}
-            onChange={(value) => this.setState({newTask: value})}
+            onChange={value => this.setState({newTask: value})}
           />
         )}
         <Header title="Todos" />
@@ -58,15 +58,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => ({
-  todos: state.todos.filter((todo) => !todo.completed),
-  completed: state.todos.filter((todo) => todo.completed),
+const mapStateToProps = state => ({
+  todos: state.todos.filter(todo => !todo.completed),
+  completed: state.todos.filter(todo => todo.completed),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  addTodo: (payload) => dispatch(addTodo(payload)),
-  removeTodo: (id) => dispatch(removeTodo(id)),
-  markAsComplete: (id) => dispatch(markAsComplete(id)),
+const mapDispatchToProps = dispatch => ({
+  addTodo: payload => dispatch(addTodo(payload)),
+  removeTodo: id => dispatch(removeTodo(id)),
+  markAsComplete: id => dispatch(markAsComplete(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
