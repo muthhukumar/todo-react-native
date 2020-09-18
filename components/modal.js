@@ -40,7 +40,7 @@ const Popup = ({onChange, newTask, onSave, onCancel}) => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center',
     elevation: 2,
     paddingVertical: 20,

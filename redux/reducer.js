@@ -17,13 +17,13 @@ export default (state = initialState, action) => {
       };
     case REMOVE_TODO:
       return {
-        todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+        todos: state.todos.filter(todo => todo.id !== action.payload.id),
       };
 
     case MARK_AS_COMPLETE:
       const todosCopy = [...state.todos];
       const todoIndex = todosCopy.findIndex(
-        (value) => value.id === action.payload.id,
+        value => value.id === action.payload.id,
       );
       todosCopy[todoIndex] = {
         ...todosCopy[todoIndex],

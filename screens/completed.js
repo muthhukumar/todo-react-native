@@ -7,14 +7,21 @@ import TodoItems from '../components/todoItems';
 import DeleteButton from '../components/deleteButton';
 import {removeTodo} from '../redux/actionCreators';
 
-class Completed extends React.completed {
+class Completed extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    if (global.mixpanel) {
+      global.mixpanel.track('visited Completed tab');
+      console.log(global.user);
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Header title="Completed" />
         <TodoItems
           data={this.props.completed}
           actionButton={DeleteButton}
